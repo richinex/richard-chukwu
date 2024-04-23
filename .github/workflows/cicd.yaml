@@ -1,0 +1,80 @@
+name: WASM Build, Test, Deploy
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Install Rust toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          target: wasm32-unknown-unknown
+          override: true
+
+      - uses: Swatinem/rust-cache@v2
+
+      - name: Install wasm-pack
+        run: cargo install wasm-pack
+
+      - name: Yarn install (latest)
+        run: |
+          yarn install
+          yarn global add npm@latest
+
+      - name: Build WASM using wasm-pack
+        run: wasm-pack build --target web --out-dir dist
+
+
+      - name: Run Cargo tests
+        run: cargo test --workspace
+
+      - name: Yarn (including WASM) Build
+        run: |
+          yarn build
+
+      - name: Save wasm dist artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: richies-web-dist
+          path: dist  # Adjust this path according to where your project outputs the build files.
+          if-no-files-found: error
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' || github.ref == 'refs/heads/pages-alt'
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Download wasm dist artifact
+        uses: actions/download-artifact@v3
+        with:
+          name: richies-web-dist
+          path: dist-for-deploy
+
+      - name: Deploy to GitHub Pages
+        uses: crazy-max/ghaction-github-pages@v3
+        with:
+          repo: richinex/richard-chukwu
+          target_branch: gh-pages
+          build_dir: dist-for-deploy
+          keep_history: false
+          jekyll: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.RICHIES_WEB_TOKEN_GITHUB }}

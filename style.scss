@@ -1,0 +1,297 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+
+// Color palette and settings
+$primary-color: #3D5AFE;
+$secondary-color: #FFC107;
+$background-color: #0A192F;
+$text-color: #fde6e3;
+$button-color: #64B5F6;
+$focus-ring-color: rgba($button-color, 0.5);
+$gallery-item-color: #9B59B6;
+
+body {
+  background-color: $background-color;
+  color: $text-color;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+.button {
+  background-color: $button-color;
+  color: white;
+  transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+  &:hover {
+      background-color: darken($button-color, 10%);
+      transform: translateY(-2px);
+  }
+  &:focus {
+      outline: none;
+      box-shadow: 0 0 0 0.2rem $focus-ring-color;
+  }
+}
+
+.active {
+  font-weight: bold;
+  color: #4A90E2; /* Example active color */
+}
+
+
+.gallery {
+  background-color: darken($background-color, 10%);
+  color: $text-color;
+  transition: background-color 0.3s ease;
+
+  h1, h3, p {
+      color: inherit;
+      transition: color 0.3s ease-in-out, transform 0.3s ease-in-out;
+      font-weight: 300;
+      &:hover {
+        color: $secondary-color;
+        transform: scale(1.05);
+      }
+  }
+}
+
+.animate-scale {
+  transition: transform 0.5s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.p-text {
+  transition: color 0.5s ease-in-out, transform 0.3s ease-in-out;
+  &:hover {
+    color: $secondary-color;
+    transform: scale(1.05);
+  }
+}
+
+.gallery-item {
+  background-color: $gallery-item-color;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  &:hover {
+    transform: translateY(-10px) rotate(-3deg);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+  }
+}
+
+
+/* Enhanced Project Container Style */
+
+
+.project-item {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  background-color: #fff;
+  color: #000;  /* Black text color for better readability */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 10px 0;
+  overflow: hidden;
+  transition: all 0.3s ease-in-out;
+  height: 600px; /* Increased height */
+  text-align: justify; /* Justifies text within the entire project item */
+}
+
+
+/* Styling for Markdown Content */
+.markdown {
+  max-height: 500px;  /* Increased content visibility */
+  overflow-y: auto;  /* Scrolling enabled */
+  padding: 10px;
+  background: #f9f9f9;  /* Light background for markdown content */
+  border-radius: 5px;  /* Rounded corners inside the project item */
+}
+
+/* Button Styling for a more engaging look */
+.project-button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.project-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);  /* Slight increase in size */
+}
+
+/* Navigation Bar Style */
+.projects-navigation {
+  display: flex;
+  justify-content: space-around;  /* Space out buttons more */
+  align-items: center;
+  padding: 20px;
+  margin-top: 5px;  /* Space above navigation bar */
+}
+
+
+
+/* Slider adjustments for better focus */
+.projects-slider {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 0;  /* Add padding around slider */
+}
+
+
+
+.code-snippet pre {
+  white-space: pre-wrap;  // Allows text to wrap within the pre element
+  word-wrap: break-word;  // Breaks words that extend beyond the width of the container
+  overflow-wrap: break-word; // Ensures long words will wrap and not overflow
+  overflow-x: auto; // Allows horizontal scrolling if needed
+  font-family: 'Courier New', monospace; // Ensures monospaced font
+  font-size: 1.25rem; // Smaller font size for better fit on small screens
+  line-height: 3.0; // Improved line spacing for readability
+  background-color: rgba(255, 255, 255, 0.1); // Light background for the code area
+  color: #E3F2FD; // Text color for readability
+  padding: 10px; // Padding around the text
+  border-radius: 8px; // Rounded corners for aesthetics
+
+
+}
+
+
+.code-snippet {
+  overflow: hidden;
+  padding: 16px; // Consistent padding
+  margin-top: 20px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1.25rem;
+  color: $secondary-color;
+  min-height: 100px;
+  border-radius: 5px;
+  overflow-y: auto;
+  max-height: 700px;
+  width: 80%; // Ensures it takes the full width of its container
+
+
+
+  .keyword, .macro { color: #569cd6; } // Simplify repeated styles
+  .string { color: #ce9178; }
+  .comment { color: #6a9955; }
+  .function { color: #c586c0; }
+  .brace { color: #dcdcdc; }
+  .attribute { color: #d7ba7d; }
+  .variable { color: #9cdcfe; }
+  .highlight-name { font-size: 1.2em; color: #c678dd; font-weight: bold; } /* For your name */
+  .highlight-role { font-size: 1.1em; color: #56b6c2; font-weight: bold; } /* For your role */
+  .highlight-tech { font-size: 1.1em; color: #e06c75; font-weight: bold; } /* For technologies like Rust, Yew */
+  .highlight-language { font-size: 1.1em; color: #c0de18; font-weight: bold; } /* For technologies like Rust, Yew */
+  .description { color: #dcdcaa; }
+  .important { font-weight: bold; color: #ce9178; }
+
+  code {
+      display: block; // Use block to ensure it takes the full width
+      animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: $secondary-color; }
+  }
+}
+
+// Media query for smaller screens
+/* Larger screens: Standard size */
+@media (min-width: 1024px) {
+  .code-snippet pre {
+      font-size: 1rem; /* Standard font size for large screens */
+  }
+}
+
+/* Medium screens */
+@media (max-width: 1023px) {
+  .code-snippet pre {
+      font-size: 0.875rem; /* Slightly smaller font size for medium screens */
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .code-snippet pre {
+      font-size: 0.75rem; /* Even smaller font size for better fit on small screens */
+  }
+}
+.project-link {
+  padding-top: 30px; // Add some space above the link
+  font-size: 1.25rem; // Larger text for importance
+  a {
+      transition: color 0.3s ease;
+  }
+}
+
+
+.image-animate-on {
+  animation: image-entry 1s ease-out forwards;
+}
+
+.turn-on-off-hover {
+  transition: filter 0.3s ease-in-out;
+
+  &:hover {
+    filter: brightness(1.2) contrast(1.2); // Adjust brightness and contrast on hover
+  }
+}
+
+
+.articles-layout {
+  display: flex;
+  max-width: 100%;
+  min-height: 100vh;
+}
+
+.navigation-pane {
+  width: 20%; /* Adjust the width of the navigation pane */
+  background-color: #007bff; /* Blue background for the sidebar */
+  color: #ffffff; /* White text for readability on blue background */
+  padding: 20px;
+  overflow-y: auto; /* Enables scrolling for the navigation pane */
+}
+
+/* Specific styles for navigation pane list items */
+.navigation-pane ul {
+  list-style: none;
+  padding: 0;
+  margin: 0; /* Ensuring there's no default margin */
+}
+
+.navigation-pane li {
+  cursor: pointer;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  color: white; /* White text for readability on blue background */
+}
+
+.navigation-pane li.active {
+  font-weight: bold; /* Make the active item bold */
+  background-color: #0056b3; /* Optional: darker background for the active item */
+}
+
+
+.article-content {
+  width: 80%; /* Adjust the width of the content pane */
+  background-color: #ffffff; /* White background for the content area */
+  color: #000000; /* Black text for high contrast on white background */
+  padding: 20px;
+  overflow-y: auto; /* Enables scrolling for the content pane */
+}
+
+
+
+
+@import "tailwindcss/utilities";

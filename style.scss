@@ -248,49 +248,59 @@ body {
   }
 }
 
-
 .articles-layout {
   display: flex;
+  flex-direction: column;  // Change direction on small screens
   max-width: 100%;
   min-height: 100vh;
+
+  @media (min-width: 768px) {  // For tablets and larger devices
+    flex-direction: row;
+  }
 }
 
 .navigation-pane {
-  width: 20%; /* Adjust the width of the navigation pane */
-  background-color: #007bff; /* Blue background for the sidebar */
-  color: #ffffff; /* White text for readability on blue background */
+  width: 100%;  // Full width on small screens
+  background-color: #007bff;  // Blue background for the sidebar
+  color: #ffffff;  // White text for readability on blue background
   padding: 20px;
-  overflow-y: auto; /* Enables scrolling for the navigation pane */
+  overflow-y: auto;  // Enables scrolling for the navigation pane
+
+  @media (min-width: 768px) {  // For tablets and larger devices
+    width: 20%;  // Adjust the width of the navigation pane
+  }
 }
 
 /* Specific styles for navigation pane list items */
 .navigation-pane ul {
   list-style: none;
   padding: 0;
-  margin: 0; /* Ensuring there's no default margin */
+  margin: 0;  // Ensuring there's no default margin
 }
 
 .navigation-pane li {
   cursor: pointer;
   padding: 10px;
   border-bottom: 1px solid #ccc;
-  color: white; /* White text for readability on blue background */
+  color: white;  // White text for readability on blue background
 }
 
 .navigation-pane li.active {
-  font-weight: bold; /* Make the active item bold */
-  background-color: #0056b3; /* Optional: darker background for the active item */
+  font-weight: bold;  // Make the active item bold
+  background-color: #0056b3;  // Optional: darker background for the active item
 }
-
 
 .article-content {
-  width: 80%; /* Adjust the width of the content pane */
-  background-color: #ffffff; /* White background for the content area */
-  color: #000000; /* Black text for high contrast on white background */
+  width: 100%;  // Full width on small screens
+  background-color: #ffffff;  // White background for the content area
+  color: #000000;  // Black text for high contrast on white background
   padding: 20px;
-  overflow-y: auto; /* Enables scrolling for the content pane */
-}
+  overflow-y: auto;  // Enables scrolling for the content pane
 
+  @media (min-width: 768px) {  // For tablets and larger devices
+    width: 80%;  // Adjust the width of the content pane
+  }
+}
 
 
 

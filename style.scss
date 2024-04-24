@@ -302,6 +302,21 @@ body {
   }
 }
 
+#welcome-id {
+  color: navy;
+  font-weight: bold;
+}
+
+.headers-class {
+  font-weight: bold;
+  font-size: 20px;
+}
+
+
+ul, ol {
+  margin-left: 20px;
+  padding-left: 20px;
+}
 
 
 @import "tailwindcss/utilities";

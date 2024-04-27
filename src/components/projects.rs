@@ -110,17 +110,17 @@ pub fn project_item(ProjectItemProps { name, description, github_link }: &Projec
 pub fn projects() -> Html {
     let projects = vec![
         ProjectItemProps {
-            name: "Project 1".to_string(),
+            name: "FitMyEIS".to_string(),
             description: include_str!("../../static/markdown/projects/project1.md"),
             github_link: "https://github.com/username/project1".to_string(),
         },
         ProjectItemProps {
-            name: "Project 2".to_string(),
+            name: "PyMultiplEIS".to_string(),
             description: include_str!("../../static/markdown/projects/project2.md"),
             github_link: "https://github.com/username/project2".to_string(),
         },
         ProjectItemProps {
-            name: "Project 3".to_string(),
+            name: "Plexisort".to_string(),
             description: include_str!("../../static/markdown/projects/project3.md"),
             github_link: "https://github.com/username/project3".to_string(),
         },

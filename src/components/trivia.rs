@@ -143,7 +143,6 @@ fn trivia_quiz() -> Html {
 
     html! {
                 <div class="card">
-                    <h2 class="text-2xl font-semibold">{ "Trivia Quiz" }</h2>
                     <p>{ selected_question_clone.query }</p>
                     <input type="text"
                         placeholder="Your answer"
@@ -178,7 +177,7 @@ fn trivia_quiz() -> Html {
 pub fn entertainment() -> Html {
     html! {
         <div class="entertainment-section">
-            <h1 class="text-4xl font-bold text-center mb-8">{ "Entertainment Section" }</h1>
+            <h1 class="text-4xl font-bold text-center mb-8">{ "Trivia Section" }</h1>
             <div class="flex flex-wrap justify-around">
                 <TriviaQuiz />
             </div>

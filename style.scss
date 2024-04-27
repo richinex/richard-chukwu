@@ -10,19 +10,6 @@ $button-color: #64B5F6;
 $focus-ring-color: rgba($button-color, 0.5);
 $gallery-item-color: #9B59B6;
 
-/* Add this to your project's CSS file */
-nav .container {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  width: 100%;
-}
-
-@media (max-width: 768px) {
-  nav .container {
-      flex-direction: column;
-  }
-}
 
 
 body {
@@ -410,33 +397,75 @@ ul, ol {
 /* Navigation bar adjustments */
 
 /* Enhanced Nav Link Styles */
-.nav-link {
+nav {
+  background-color: #222; // Dark background
   color: white;
-  text-decoration: none;
-  font-size: 18px; /* Larger font size */
-  font-weight: bold; /* Bold font weight */
-  padding: 14px 16px;
-  text-transform: uppercase; /* Uppercase text */
-  letter-spacing: 1px; /* More spacing between letters */
-}
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    .mobile-nav {
+      display: none; // Initially hidden on desktop
+    }
 
-.nav-link.active {
-  color: #ffcc00; /* Change color to gold for active link */
-  background-color: #222; /* Darker background for active link */
-  text-decoration: underline; /* Ensure underline is visible */
-}
+    .menu-button {
+      display: none; // Initially hidden on desktop
+    }
 
-.nav-link:hover {
-  text-decoration: underline;
-  background-color: #333; /* Darker background on hover for better contrast */
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 768px) {
-  nav .container {
-      flex-direction: column;
+    .nav-links {
+      display: flex; // Ensure links are always visible and horizontally arranged on desktop
+      justify-content: space-around;
+      width: 100%;
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 14px 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        &:hover, &.active {
+          background-color: #333;
+          text-decoration: underline;
+          color: #ffcc00;
+        }
+      }
+    }
   }
 }
+
+@media (max-width: 768px) {
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .menu-button {
+      display: block; // Show the menu button on mobile
+    }
+
+    .nav-links, .mobile-nav {
+      display: none; // Hide nav-links by default on mobile
+    }
+
+    .nav-links.open, .mobile-nav {
+      display: block; // Display when menu is toggled open
+      width: 100%;
+      .nav-link {
+        display: block;
+        width: 100%;
+        padding: 10px; // Smaller padding on mobile
+        text-align: left;
+        &:hover, &.active {
+          background-color: #333;
+          text-decoration: underline;
+          color: #ffcc00;
+        }
+      }
+    }
+  }
+}
+
 
 
 // Additional responsive or theme-specific adjustments could be added here

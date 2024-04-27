@@ -2,6 +2,8 @@ use yew::{prelude::*, virtual_dom::VNode};
 use pulldown_cmark::{Parser, Options, html::push_html};
 use chrono::NaiveDate;
 use std::collections::HashMap;
+use std::cmp::Reverse;
+// https://stackoverflow.com/questions/60916194/how-to-sort-a-vector-in-descending-order-in-rust
 
 #[derive(Properties, PartialEq, Clone)]
 pub struct ArticleItemProps {
@@ -34,6 +36,16 @@ pub fn articles() -> Html {
             content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
             filename: "article_02_23-04-2024.md".to_string(),
         },
+        ArticleItemProps {
+            title: "Advanced Yew Techniques".to_string(),
+            content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
+            filename: "article_01_25-04-2024.md".to_string(),
+        },
+        ArticleItemProps {
+            title: "Advanced Yew Techniques".to_string(),
+            content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
+            filename: "article_01_01-05-2024.md".to_string(),
+        },
         // More articles can be added here...
     ];
 
@@ -44,7 +56,7 @@ pub fn articles() -> Html {
     }
 
     let mut dates: Vec<_> = articles_by_date.keys().cloned().collect();
-    dates.sort(); // Sort dates
+    dates.sort_by_key(|w| Reverse(*w)); // Sort dates
 
     let selected_index = use_state(|| 0);
 

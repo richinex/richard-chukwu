@@ -15,16 +15,15 @@
 
 /* If Tailwind is used, specify colors in tailwind.config.js and use utility classes in HTML */
 body {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent),
-  url('static/images/background_07.jpg');
+  background: linear-gradient(rgba(245, 245, 245, 0.6), rgba(230, 230, 230, 0.9)),
+  url('static/images/background_10.jpg');
   background-repeat: no-repeat;
   background-position: center;
   width: auto;
   min-height: 100vh;
   background-size: cover;
-
-
 }
+
 
 /* Retain custom scrollbar styles if necessary */
 @media (hover: hover) {
@@ -179,7 +178,7 @@ body {
   cursor: pointer;
   padding: 10px;
   border-bottom: 1px solid #ccc;
-  color: white;  // White text for readability on blue background
+  color: #000000;  // White text for readability on blue background
 }
 
 .navigation-pane li.active {
@@ -342,3 +341,99 @@ nav {
   }
 }
 
+
+.entertainment-section {
+  padding: 2rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card {
+  // background-color: #d30ff1;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.card .input, .card .button {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  color: #000000; // Darker text color for better visibility
+  font-size: 16px; // Adequate font size
+  height: 50px; // Explicit height for the input field
+}
+
+.card .button {
+  padding: 0.6rem;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 0.8rem; // Applies to both buttons for consistency
+  margin-bottom: 0.5rem; // Applies to both buttons for consistency
+}
+
+.card .check-answer-button {
+  background-color: #4CAF50; // Green
+}
+
+.card .next-question-button {
+  background-color: #007BFF; // Blue
+}
+
+.card .reset-button {
+  background-color: #9B59B6; // Green
+}
+
+
+.card .button:hover {
+  opacity: 0.85; // Slight fade effect on hover for both buttons
+  background-color: #45a049; // Adjusted background color on hover
+}
+
+.progress {
+  width: 100%; // Ensures the progress bar stretches across the entire width of the card
+  background-color: #ddd; // Light grey background for the progress bar
+  border-radius: 0.25rem; // Rounded edges for the progress bar
+  height: 20px; // Set the height of the progress bar
+  margin-bottom: 1rem; // Space below the progress bar
+  position: relative; // Needed for absolute positioning of the text
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  border: 1px solid #bbb; // Light border for definition
+}
+
+.progress-bar {
+  height: 100%; // Ensures the fill takes up the entire height of the progress bar
+  background-image: linear-gradient(to right, #4CAF50, #81C784); // Gradient from dark to light green
+  border-radius: 0.25rem; // Rounded edges for the filled part of the progress bar
+  transition: width 0.4s ease-in-out; // Smooth transition for width adjustments
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); // Inner shadow for texture
+}
+
+.progress-text {
+  position: absolute; // Absolute position within the parent .progress
+  width: 100%; // Match the width of the parent
+  top: 50%; // Center vertically
+  left: 0; // Align left
+  transform: translateY(-50%); // Centering adjustment
+  text-align: center; // Center the text horizontally
+  color: #323842; // Text color that stands out against the bar
+  font-size: 12px; // Adequate font size for visibility
+}
+
+
+
+@keyframes balloons {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-20px) rotate(4deg); }
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .card {
+    width: 80%; // Makes the card wider on larger screens
+    padding: 2rem; // Increases padding for better aesthetics
+    margin: auto; // Centers the card horizontally
+  }
+}

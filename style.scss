@@ -15,7 +15,7 @@
 
 /* If Tailwind is used, specify colors in tailwind.config.js and use utility classes in HTML */
 body {
-  background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)),
+  background: linear-gradient(rgba(255, 255, 255, 0.1), transparent),
   url('static/images/background_07.jpg');
   background-repeat: no-repeat;
   background-position: center;
@@ -58,6 +58,22 @@ body {
   }
 }
 
+.code-snippet pre {
+  white-space: pre-wrap;  // Allows text to wrap within the pre element
+  word-wrap: break-word;  // Breaks words that extend beyond the width of the container
+  overflow-wrap: break-word; // Ensures long words will wrap and not overflow
+  overflow-x: auto; // Allows horizontal scrolling if needed
+  font-family: 'Courier New', monospace; // Ensures monospaced font
+  font-size: 1.25rem; // Smaller font size for better fit on small screens
+  line-height: 3.0; // Improved line spacing for readability
+  background-color: rgba(255, 255, 255, 0.1); // Light background for the code area
+  color: #E3F2FD; // Text color for readability
+  padding: 10px; // Padding around the text
+  border-radius: 8px; // Rounded corners for aesthetics
+
+
+}
+
 
 // Code snippet
 .code-snippet {
@@ -66,7 +82,7 @@ body {
   margin-top: 20px;
   font-family: 'Fira Code', 'Consolas', monospace;
   font-size: 1.25rem;
-  // background-color: #1e1e1e; // Dark background
+  background-color: #1e1e1e; // Dark background
   min-height: 100px;
   border-radius: 5px;
   overflow-y: auto;

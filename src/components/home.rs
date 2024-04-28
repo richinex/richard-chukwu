@@ -392,7 +392,7 @@ pub fn home() -> Html {
             <h1 class="text-2xl md:text-5xl font-bold transition duration-500 ease-in-out hover:text-purple-300">{ "About Me" }</h1>
             </header>
             // <main class="flex flex-col md:flex-row-reverse items-center justify-center p-4 w-full bg-gradient-to-br from-gray-800 via-gray-900 to-black text-center md:text-left">
-            <main class="flex flex-col items-center justify-center p-4 w-full text-center">
+            <main class="flex flex-col items-center justify-center p-4 w-full text-center md:text-left">
                 <div class="m-4 p-4 bg-opacity-80 bg-rich-blue rounded-full shadow-lg transition duration-700 ease-in-out hover:rotate-12 hover:bg-purple-600">
                     <img src="/richard-chukwu/images/portfolio_image_01.png" class="rounded-full border-4 border-secondary shadow-xl w-64 h-64 transition-transform duration-500 ease-in-out hover:scale-125" alt="Profile Image" />
                 </div>

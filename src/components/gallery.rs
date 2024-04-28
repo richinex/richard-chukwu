@@ -7,8 +7,8 @@ pub fn gallery() -> Html {
         <>
             // Remove specific background and text color classes
             <div class="gallery p-4">
-                <h1 class="text-3xl font-bold text-center">{ "Gallery" }</h1>
-                <p class="text-center mb-4">{ "Some of my favorite projects." }</p>
+                // <h1 class="text-3xl font-bold text-center">{ "Gallery" }</h1>
+                <p class="text-center mb-4">{ "Pictures of some of my favorite projects." }</p>
                 <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <GalleryItem
                         image_src="/richard-chukwu/images/portfolio.png"
@@ -18,17 +18,17 @@ pub fn gallery() -> Html {
                     <GalleryItem
                         image_src="/richard-chukwu/images/fitmyeis_01.png"
                         title="FitMyEIS"
-                        description="A revolutionary new app that changes the way you do business."
+                        description="A web application for fitting dynamic impedance data."
                     />
                     <GalleryItem
                         image_src="/richard-chukwu/images/pymultipleis.png"
                         title="PyMultiplEIS (Jax version)"
-                        description="A python package for batch fitting electrochemical impedance (EIS) data."
+                        description="A Python library for batch fitting electrochemical impedance (EIS) data."
                     />
                     <GalleryItem
                     image_src="/richard-chukwu/images/organized_folder_tree.png"
                     title="Plexisort"
-                    description="An OS agnostic folder organizer."
+                    description="A command-line tool designed to organize your files based on metadata."
                 />
 
                 </div>

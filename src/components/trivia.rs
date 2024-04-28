@@ -153,6 +153,13 @@ fn trivia_quiz() -> Html {
                     <button onclick={check_answer} class="button check-answer-button" disabled={*quiz_complete}>{ "Check Answer" }</button>
                     <button onclick={next_question} class="button next-question-button" disabled={ *quiz_complete}>{ "Next Question" }</button>
                     <button onclick={reset_quiz} class="button reset-button">{ "Reset Quiz" }</button>
+
+                    <div class="progress">
+                        <div class="progress-bar" style={format!("width: {}%", (*current_index as f64 / QUESTIONS.len() as f64) * 100.0)}></div>
+                        <span class="progress-text">{ format!("{}/{} questions left", QUESTIONS.len() - *current_index, QUESTIONS.len()) }</span>
+                    </div>
+
+
                     if let Some(message) = &*result_message {
                         <p>{ message }</p>
                     }

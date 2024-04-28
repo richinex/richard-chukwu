@@ -99,6 +99,7 @@ pub fn project_item(ProjectItemProps { name, description, github_link }: &Projec
 
     html! {
         <div class="project-item transition-transform duration-300 ease-in-out">
+
             <h3 class="text-lg font-semibold">{ name.clone() }</h3>
             <div class="markdown">{ rendered_html }</div>
             <a href={github_link.clone()} target="_blank" class="github-link text-blue-500 hover:text-blue-700 transition-colors duration-300">{"View on GitHub"}</a>
@@ -111,18 +112,18 @@ pub fn projects() -> Html {
     let projects = vec![
         ProjectItemProps {
             name: "FitMyEIS".to_string(),
-            description: include_str!("../../static/markdown/projects/project1.md"),
-            github_link: "https://github.com/username/project1".to_string(),
+            description: include_str!("../../static/markdown/projects/fitmyeis.md"),
+            github_link: "fitmyeis.com".to_string(),
         },
         ProjectItemProps {
             name: "PyMultiplEIS".to_string(),
-            description: include_str!("../../static/markdown/projects/project2.md"),
-            github_link: "https://github.com/username/project2".to_string(),
+            description: include_str!("../../static/markdown/projects/pymultipleis.md"),
+            github_link: "https://github.com/richinex/pymultipleis".to_string(),
         },
         ProjectItemProps {
             name: "Plexisort".to_string(),
-            description: include_str!("../../static/markdown/projects/project3.md"),
-            github_link: "https://github.com/username/project3".to_string(),
+            description: include_str!("../../static/markdown/projects/plexisort.md"),
+            github_link: "https://github.com/richinex/plexisort".to_string(),
         },
         // Add more projects as needed
     ];
@@ -147,7 +148,7 @@ pub fn projects() -> Html {
 
     html! {
         <div class="projects-container max-w-7xl mx-auto mt-8 px-4">
-            <h1 class="text-2xl font-bold text-center mb-6">{ "Projects" }</h1>
+        <p class="text-center mb-4">{ "Description of some of my favorite projects." }</p>
             <div class="projects-slider">
                 { for projects.iter().enumerate().filter_map(|(i, project)| {
                     if i == *current_index {

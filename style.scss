@@ -8,10 +8,15 @@
   font-family: "Poppins", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+
 /* If Tailwind is used, specify colors in tailwind.config.js and use utility classes in HTML */
 body {
   background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3)),
-  url('static/images/background.jpg');
+  url('static/images/background_02.jpg');
   background-repeat: no-repeat;
   background-position: center;
   width: auto;
@@ -50,6 +55,75 @@ body {
   }
   to {
     transform: rotate(360deg);
+  }
+}
+
+
+// Code snippet
+.code-snippet {
+  overflow: hidden;
+  padding: 16px; // Consistent padding
+  margin-top: 20px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1.25rem;
+  // background-color: #1e1e1e; // Dark background
+  min-height: 100px;
+  border-radius: 5px;
+  overflow-y: auto;
+  max-height: 700px;
+  width: 80%; // Ensures it takes the full width of its container
+
+
+
+  .keyword, .macro { color: #569cd6; } // Simplify repeated styles
+  .string { color: #ce9178; }
+  .comment { color: #6a9955; }
+  .function { color: #c586c0; }
+  .brace { color: #dcdcdc; }
+  .attribute { color: #d7ba7d; }
+  .variable { color: #9cdcfe; }
+  .highlight-name { font-size: 1.2em; color: #c678dd; font-weight: bold; } /* For your name */
+  .highlight-role { font-size: 1.1em; color: #56b6c2; font-weight: bold; } /* For your role */
+  .highlight-tech { font-size: 1.1em; color: #e06c75; font-weight: bold; } /* For technologies like Rust, Yew */
+  .highlight-language { font-size: 1.1em; color: #c0de18; font-weight: bold; } /* For technologies like Rust, Yew */
+  .description { color: #dcdcaa; }
+  .important { font-weight: bold; color: #ce9178; }
+
+  code {
+      display: block; // Use block to ensure it takes the full width
+      animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #569cd6; }
+  }
+}
+
+// Media query for smaller screens
+/* Larger screens: Standard size */
+@media (min-width: 1024px) {
+  .code-snippet pre {
+      font-size: 1rem; /* Standard font size for large screens */
+  }
+}
+
+/* Medium screens */
+@media (max-width: 1023px) {
+  .code-snippet pre {
+      font-size: 0.875rem; /* Slightly smaller font size for medium screens */
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .code-snippet pre {
+      font-size: 0.75rem; /* Even smaller font size for better fit on small screens */
   }
 }
 

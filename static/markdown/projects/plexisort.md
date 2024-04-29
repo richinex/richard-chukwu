@@ -24,7 +24,7 @@ In sharing Plexisort, I hope to not only provide a solution to a common problem 
 <br />
 
 ## Features
-<br />
+
 <br />
 
 - **Custom Config File**: Use a custom configuration (TOML) file to specify operational parameters.

@@ -27,38 +27,29 @@ fn extract_date_from_filename(filename: &str) -> Result<NaiveDate, String> {
 pub fn articles() -> Html {
     let articles = vec![
         ArticleItemProps {
-            title: "Introduction to Yew".to_string(),
-            content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
-            filename: "article_01_23-04-2024.md".to_string(),
+            title: "Trait Objects vs Generics in Rust".to_string(),
+            content: include_str!("../../static/markdown/articles/article_01_15-04-2024.md"),
+            filename: "article_01_15-04-2024.md".to_string(),
         },
         ArticleItemProps {
-            title: "Advanced Yew Techniques".to_string(),
-            content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
-            filename: "article_02_23-04-2024.md".to_string(),
+            title: "Learning Rust — A Guide to Great Resources".to_string(),
+            content: include_str!("../../static/markdown/articles/article_01_16-04-2024.md"),
+            filename: "article_01_16-04-2024.md".to_string(),
         },
-        ArticleItemProps {
-            title: "Advanced Yew Techniques".to_string(),
-            content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
-            filename: "article_01_25-04-2024.md".to_string(),
-        },
-        ArticleItemProps {
-            title: "Advanced Yew Techniques".to_string(),
-            content: include_str!("../../static/markdown/articles/article_01_23-04-2024.md"),
-            filename: "article_01_01-05-2024.md".to_string(),
-        },
-        // More articles can be added here...
     ];
 
     let mut articles_by_date: HashMap<NaiveDate, Vec<&ArticleItemProps>> = HashMap::new();
     for article in &articles {
-        let date = extract_date_from_filename(&article.filename).unwrap(); // Assume unwrap for simplicity
+        let date = extract_date_from_filename(&article.filename).unwrap();
         articles_by_date.entry(date).or_insert_with(Vec::new).push(article);
     }
-
     let mut dates: Vec<_> = articles_by_date.keys().cloned().collect();
-    dates.sort_by_key(|w| Reverse(*w)); // Sort dates
+    dates.sort_by_key(|w| Reverse(*w));
 
     let selected_index = use_state(|| 0);
+    let flat_articles: Vec<(NaiveDate, &ArticleItemProps)> = dates.iter()
+        .flat_map(|date| articles_by_date.get(date).unwrap().iter().map(move |article| (*date, *article)))
+        .collect();
 
     let select_article = {
         let selected_index = selected_index.clone();
@@ -71,16 +62,17 @@ pub fn articles() -> Html {
         <div class="articles-layout">
             <aside class="navigation-pane">
                 <ul>
-                    { for dates.iter().map(|date| {
+                    { for dates.iter().enumerate().map(|(_, date)| {
                         html! {
                             <>
                                 <li class="date-header">{ date.format("%d-%m-%Y").to_string() }</li>
-                                { for articles_by_date.get(date).unwrap().iter().enumerate().map(|(index, article)| {
+                                { for articles_by_date.get(date).unwrap().iter().enumerate().map(|(_, article)| {
+                                    let global_index = flat_articles.iter().position(|(_, a)| *a == *article).unwrap();
                                     let onclick = {
                                         let select_article = select_article.clone();
-                                        Callback::from(move |_| select_article(index))
+                                        Callback::from(move |_| select_article(global_index))
                                     };
-                                    let class = if *selected_index == index { "active" } else { "" };
+                                    let class = if *selected_index == global_index { "active" } else { "" };
                                     html! {
                                         <li {onclick} class={classes!(class)}>
                                             { &article.title }
@@ -93,7 +85,7 @@ pub fn articles() -> Html {
                 </ul>
             </aside>
             <article class="article-content">
-                { if let Some(article) = articles.get(*selected_index) {
+                { if let Some((_, article)) = flat_articles.get(*selected_index) {
                     let mut options = Options::empty();
                     options.insert(Options::ENABLE_STRIKETHROUGH);
                     options.insert(Options::ENABLE_TABLES);  // Enable tables
@@ -106,7 +98,6 @@ pub fn articles() -> Html {
 
                     html! {
                         <>
-                            <h1>{ &article.title }</h1>
                             <div class="content">{ rendered_content }</div>
                         </>
                     }

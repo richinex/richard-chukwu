@@ -11,9 +11,9 @@ pub fn gallery() -> Html {
                 <p class="text-center mb-4">{ "Pictures of some of my favorite projects." }</p>
                 <div class="gallery-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <GalleryItem
-                        image_src="/richard-chukwu/images/portfolio.png"
+                        image_src="/richard-chukwu/images/richie-portfolio.png"
                         title="My Portfolio"
-                        description="A Personal site built with Rust and WASM."
+                        description="A Personal site built with Rust and WASM (No JavaScript)."
                     />
                     <GalleryItem
                         image_src="/richard-chukwu/images/fitmyeis_01.png"
@@ -25,11 +25,22 @@ pub fn gallery() -> Html {
                         title="PyMultiplEIS (Jax version)"
                         description="A Python library for batch fitting electrochemical impedance (EIS) data."
                     />
+                        <GalleryItem
+                        image_src="/richard-chukwu/images/plexisort.png"
+                        title="Plexisort"
+                        description="A command-line tool designed to organize your files based on metadata."
+                    />
+                        <GalleryItem
+                        image_src="/richard-chukwu/images/config-server.png"
+                        title="Config Server"
+                        description="A Rust-based configuration management server."
+                    />
                     <GalleryItem
-                    image_src="/richard-chukwu/images/organized_folder_tree.png"
-                    title="Plexisort"
-                    description="A command-line tool designed to organize your files based on metadata."
-                />
+                        image_src="/richard-chukwu/images/thunderhawk.png"
+                        title="ThunderHawk"
+                        description="A command-line tool designed for load testing APIs."
+                    />
+
 
                 </div>
             </div>

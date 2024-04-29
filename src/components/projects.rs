@@ -38,6 +38,11 @@ pub fn project_item(ProjectItemProps { name, description, github_link }: &Projec
 pub fn projects() -> Html {
     let projects = vec![
         ProjectItemProps {
+            name: "Plexisort".to_string(),
+            description: include_str!("../../static/markdown/projects/plexisort.md"),
+            github_link: "https://github.com/richinex/plexisort".to_string(),
+        },
+        ProjectItemProps {
             name: "FitMyEIS".to_string(),
             description: include_str!("../../static/markdown/projects/fitmyeis.md"),
             github_link: "https://www.fitmyeis.com".to_string(),
@@ -47,11 +52,7 @@ pub fn projects() -> Html {
             description: include_str!("../../static/markdown/projects/pymultipleis.md"),
             github_link: "https://github.com/richinex/pymultipleis".to_string(),
         },
-        ProjectItemProps {
-            name: "Plexisort".to_string(),
-            description: include_str!("../../static/markdown/projects/plexisort.md"),
-            github_link: "https://github.com/richinex/plexisort".to_string(),
-        },
+
         // Add more projects as needed
     ];
     let current_index = use_state(|| 0);

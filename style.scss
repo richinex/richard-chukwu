@@ -17,7 +17,8 @@
 /* If Tailwind is used, specify colors in tailwind.config.js and use utility classes in HTML */
 body {
   background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)),
-  url('static/images/background_12.jpg');
+  // background: linear-gradient(rgba(255, 255, 255, 0.6), transparent),
+  url('static/images/background_10.jpg');
   background-repeat: no-repeat;
   background-position: center;
   width: auto;

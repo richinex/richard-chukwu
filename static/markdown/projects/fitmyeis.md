@@ -1,4 +1,3 @@
-# Plexisort
 
 **Plexisort** is a command-line tool designed to organize your files based on metadata. It allows for flexible source and destination directory settings, supports dry-run operations for safe previews of potential changes, and even offers an undo functionality for reversing the last set of file movements.
 

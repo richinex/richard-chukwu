@@ -27,7 +27,7 @@ pub fn project_item(ProjectItemProps { name, description, github_link }: &Projec
     html! {
         <div class="project-item transition-transform duration-300 ease-in-out">
 
-            <h3 class="text-lg font-semibold">{ name.clone() }</h3>
+            <h3 class="text-lg font-semibold text-center mb-4">{ name.clone() }</h3>
             <div class="content">{ rendered_html }</div>
             <a href={github_link.clone()} target="_blank" class="github-link text-blue-500 hover:text-blue-700 transition-colors duration-300">{"View on GitHub"}</a>
         </div>
@@ -75,7 +75,7 @@ pub fn projects() -> Html {
 
     html! {
         <div class="projects-container max-w-7xl mx-auto mt-8 px-4">
-        <p class="text-center mb-4">{ "Description of some of my favorite projects." }</p>
+        // <p class="text-center mb-4">{ "Description of some of my favorite projects." }</p>
             <div class="projects-slider">
                 { for projects.iter().enumerate().filter_map(|(i, project)| {
                     if i == *current_index {
@@ -92,92 +92,3 @@ pub fn projects() -> Html {
         </div>
     }
 }
-// use yew::{function_component, html, use_state, Callback, Html};
-// use yew::{prelude::*, virtual_dom::VNode};
-// use pulldown_cmark::{Parser, Options, html::push_html};
-
-// #[derive(Properties, PartialEq, Clone)]
-// pub struct ProjectItemProps {
-//     pub name: String,
-//     pub description: &'static str,
-//     pub github_link: String,
-// }
-
-// #[function_component(ProjectItem)]
-// pub fn project_item(ProjectItemProps { name, description, github_link }: &ProjectItemProps) -> Html {
-//     let mut options = Options::empty();
-//     options.insert(Options::ENABLE_STRIKETHROUGH);
-//     let parser = Parser::new_ext(description, options);
-
-//     let mut html_output = String::new();
-//     push_html(&mut html_output, parser);
-
-//     html! {
-//         <div class="project-item transition-transform duration-300 ease-in-out">
-//             <h3 class="text-lg font-semibold">{ name.clone() }</h3>
-//             <div class="markdown" inner_html={html_output} />
-//             <a href={github_link.clone()} target="_blank" class="github-link text-blue-500 hover:text-blue-700 transition-colors duration-300">
-//                 {"View on GitHub"}
-//             </a>
-//         </div>
-//     }
-// }
-
-// #[function_component(Projects)]
-// pub fn projects() -> Html {
-//     let projects = vec![
-//         ProjectItemProps {
-//             name: "FitMyEIS".to_string(),
-//             description: include_str!("../../static/markdown/projects/fitmyeis.md"),
-//             github_link: "https://fitmyeis.com".to_string(),
-//         },
-//         ProjectItemProps {
-//             name: "PyMultiplEIS".to_string(),
-//             description: include_str!("../../static/markdown/projects/pymultipleis.md"),
-//             github_link: "https://github.com/richinex/pymultipleis".to_string(),
-//         },
-//         ProjectItemProps {
-//             name: "Plexisort".to_string(),
-//             description: include_str!("../../static/markdown/projects/plexisort.md"),
-//             github_link: "https://github.com/richinex/plexisort".to_string(),
-//         },
-//         // Additional projects can be added here
-//     ];
-//     let current_index = use_state(|| 0);
-//     let max_index = projects.len() - 1;
-
-//     let on_next = {
-//         let current_index = current_index.clone();
-//         Callback::from(move |_| {
-//             let new_index = (*current_index + 1).min(max_index);
-//             current_index.set(new_index);
-//         })
-//     };
-
-//     let on_prev = {
-//         let current_index = current_index.clone();
-//         Callback::from(move |_| {
-//             let new_index = (*current_index).saturating_sub(1);
-//             current_index.set(new_index);
-//         })
-//     };
-
-//     html! {
-//         <div class="projects-container max-w-7xl mx-auto mt-8 px-4">
-//             <p class="text-center mb-4">{ "Description of some of my favorite projects." }</p>
-//             <div class="projects-slider">
-//                 { for projects.iter().enumerate().filter_map(|(i, project)| {
-//                     if i == *current_index {
-//                         Some(html_nested!{ <ProjectItem ..project.clone() /> })
-//                     } else {
-//                         None
-//                     }
-//                 })}
-//             </div>
-//             <div class="projects-navigation">
-//                 <button onclick={on_prev} disabled={*current_index == 0} class="project-button disabled:opacity-50">{ "Prev" }</button>
-//                 <button onclick={on_next} disabled={*current_index == max_index} class="project-button disabled:opacity-50">{ "Next" }</button>
-//             </div>
-//         </div>
-//     }
-// }

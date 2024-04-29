@@ -10,8 +10,8 @@ pub enum Route {
     Projects,
     #[at("/gallery")]
     Gallery,
-    #[at("/entertainment")]
-    Entertainment,
+    #[at("/trivia")]
+    Trivia,
     #[at("/articles")]
     Articles,
     #[not_found]
@@ -39,7 +39,7 @@ pub fn switch(routes: Route) -> Html {
         Route::Home => html! { <home::Home /> },
         Route::Projects => html! { <projects::Projects /> },
         Route::Gallery => html! { <gallery::Gallery /> },
-        Route::Entertainment => html! { <trivia::Entertainment /> },
+        Route::Trivia => html! { <trivia::Trivia /> },
         Route::Articles => html! { <articles::Articles /> },
         Route::NotFound => html! { <h1>{"404 Not Found"}</h1> },
     }

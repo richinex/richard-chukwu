@@ -180,7 +180,7 @@ fn trivia_quiz() -> Html {
             }
 }
 
-#[function_component(Entertainment)]
+#[function_component(Trivia)]
 pub fn entertainment() -> Html {
     html! {
         <div class="entertainment-section">

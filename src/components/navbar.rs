@@ -66,7 +66,7 @@ pub fn nav_bar() -> Html {
                 <Link<Route> to={Route::Articles} classes={classes!("nav-link", if current_route == Some(Route::Articles) { "active" } else { "hover:text-gray-300" })}>
                      <i class={"fas fa-newspaper"}></i>{" Articles"}
                 </Link<Route>>
-                <Link<Route> to={Route::Entertainment} classes={classes!("nav-link", if current_route == Some(Route::Entertainment) { "active" } else { "hover:text-gray-300" })}>
+                <Link<Route> to={Route::Trivia} classes={classes!("nav-link", if current_route == Some(Route::Trivia) { "active" } else { "hover:text-gray-300" })}>
                     <i class={"fas fa-question-circle"}></i>{" Trivia"}
             </Link<Route>>
             </div>
@@ -84,7 +84,7 @@ pub fn nav_bar() -> Html {
                     <Link<Route> to={Route::Articles} classes={classes!("nav-link", if current_route == Some(Route::Articles) { "active" } else { "hover:text-gray-300" })}>
                         <i class={"fas fa-newspaper"}></i>{" Articles"}
                     </Link<Route>>
-                    <Link<Route> to={Route::Entertainment} classes={classes!("nav-link", if current_route == Some(Route::Entertainment) { "active" } else { "hover:text-gray-300" })}>
+                    <Link<Route> to={Route::Trivia} classes={classes!("nav-link", if current_route == Some(Route::Trivia) { "active" } else { "hover:text-gray-300" })}>
                         <i class={"fas fa-question-circle"}></i>{" Trivia"}
                 </Link<Route>>
                     </div>

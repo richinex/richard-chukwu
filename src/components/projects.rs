@@ -40,7 +40,7 @@ pub fn projects() -> Html {
         ProjectItemProps {
             name: "FitMyEIS".to_string(),
             description: include_str!("../../static/markdown/projects/fitmyeis.md"),
-            github_link: "fitmyeis.com".to_string(),
+            github_link: "https://www.fitmyeis.com".to_string(),
         },
         ProjectItemProps {
             name: "PyMultiplEIS".to_string(),

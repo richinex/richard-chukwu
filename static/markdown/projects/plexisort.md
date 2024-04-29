@@ -12,12 +12,6 @@ At about the same time, I started to learn Rust, and I was eager to put my newfo
 <br />
 <br />
 In sharing Plexisort, I hope to not only provide a solution to a common problem but also inspire others to embark on their own learning journeys. Whether it's tackling digital clutter or learning a new programming language, the essence of Plexisort is about embracing challenges and turning them into opportunities for growth.
-<br />
-<br />
-At about the same time, I started to learn Rust, and I was eager to put my newfound power to the test. Plexisort emerged as the perfect project to address both my personal need for a cleaner digital workspace and my professional desire to become better at Rust.
-<br />
-<br />
-In sharing Plexisort, I hope to not only provide a solution to a common problem but also inspire others to embark on their own learning journeys. Whether it's tackling digital clutter or learning a new programming language, the essence of Plexisort is about embracing challenges and turning them into opportunities for growth.
 
 <br />
 <br />
@@ -30,6 +24,8 @@ In sharing Plexisort, I hope to not only provide a solution to a common problem 
 <br />
 
 ## Features
+<br />
+<br />
 
 - **Custom Config File**: Use a custom configuration (TOML) file to specify operational parameters.
 - **Source Directory**: Set one or more source directories for the organization process.

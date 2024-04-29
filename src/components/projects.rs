@@ -28,8 +28,8 @@ pub fn project_item(ProjectItemProps { name, description, github_link }: &Projec
         <div class="project-item transition-transform duration-300 ease-in-out">
 
             <h3 class="text-lg font-semibold text-center mb-4">{ name.clone() }</h3>
-            <div class="content">{ rendered_html }</div>
-            <a href={github_link.clone()} target="_blank" class="github-link text-blue-500 hover:text-blue-700 transition-colors duration-300">{"View on GitHub"}</a>
+            <div class="content mb-4">{ rendered_html }</div>
+            <a href={github_link.clone()} target="_blank" class="github-link text-blue-500 hover:text-blue-700 transition-colors duration-300">{"View Project"}</a>
         </div>
     }
 }

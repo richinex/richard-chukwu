@@ -1,5 +1,5 @@
 
-**Pymultipleis** is a library for fitting a sequence of electrochemical impedance spectra. It offers a robust approach with some model function. Usually, the spectra being fitted are gradually varying or similar to each other and were obtained as a result of continuous change in the property of the electrochemical system under study. Such properties include but are not limited to temperature, potential, state of charge, and depth of discharge.
+**Pymultipleis** is a Python library for fitting a sequence of electrochemical impedance spectra. It offers a robust approach with some model function. Usually, the spectra being fitted are gradually varying or similar to each other and were obtained as a result of continuous change in the property of the electrochemical system under study. Such properties include but are not limited to temperature, potential, state of charge, and depth of discharge.
 <br></br>
 Implements algorithms for simultaneous and sequential fitting and leverages JAX's in-built automatic differentiation (autodiff) of Python functions. It also takes advantage of JAX's just-in-time compilation (JIT) of Python code to XLA, which runs on GPU or TPU hardware.
 <br></br>

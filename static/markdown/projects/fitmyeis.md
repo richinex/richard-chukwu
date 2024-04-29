@@ -1,20 +1,20 @@
-
-**Plexisort** is a command-line tool designed to organize your files based on metadata. It allows for flexible source and destination directory settings, supports dry-run operations for safe previews of potential changes, and even offers an undo functionality for reversing the last set of file movements.
-
-## Motivation
-
-The Plexisort project began out of necessity and curiosity. Like many, I was grappling with a cluttered Downloads folder, consisting of files accumulated over time. This clutter made it difficult to locate important documents. I also had quite a lot of images and wanted to organize them by date.
-
-At about the same time, I started to learn Rust, and I was eager to put my newfound power to the test. Plexisort emerged as the perfect project to address both my personal need for a cleaner digital workspace and my professional desire to become better at Rust.
-
-In sharing Plexisort, I hope to not only provide a solution to a common problem but also inspire others to embark on their own learning journeys. Whether it's tackling digital clutter or learning a new programming language, the essence of Plexisort is about embracing challenges and turning them into opportunities for growth.
-
-## Version
-0.1.0
-
+**FitMyEIS** is a web application designed to streamline Impedance Spectroscopy fitting, accessible from any device. Batch fitting impedance data has always been a hassle as current algorithms rely on finite difference approximation of the derivatives. FitMyEIS boasts powerful features such as autodiff computation using Python libraries Jax and Jaxopt, ensuring precise results. With robust algorithms tailored for single and multiple spectra fitting, FitMyEIS offers unparalleled experience.
+<br />
+<br />
+Version
+1.0.0
+<br />
+<br />
 ## Features
-- **Custom Config File**: Use a custom configuration (TOML) file to specify operational parameters.
-- **Source Directory**: Set one or more source directories for the organization process.
-- **Destination Directory**: Define a specific destination directory for organized files.
-- **Dry Run**: Execute the tool in a mode that shows what would be done without making any changes.
-- **Undo**: Revert the last set of changes made by the tool.
+<br />
+<br />
+
+- **Mobility**: Access Impedance Spectroscopy fitting from any device with ease.
+- **Power & Precision**: Leverage JAX autodiff and algorithms tailored for batch fitting multiple spectra to enable swift and accurate derivative calculations.
+- **Circuit Simulator**: Utilize an interactive simulator for optimal parameter estimation.
+- **Insightful Metrics**: Gain valuable insights with metrics like WRSS, WRMS, and AIC for model evaluation.
+- **Reproducibility**: Save fit data and models as JSON files for easy replication and sharing.
+- **Versatility**: Explore a diverse library of circuits and input custom impedance expressions.
+- **Weighting Options**: Choose from multiple weighting options for error minimization.
+- **Tutorial Section**: Access comprehensive tutorials and videos for seamless guidance.
+- **Integration**: Seamlessly integrate impedance expressions into Python functions for wider compatibility.

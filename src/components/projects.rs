@@ -74,21 +74,25 @@ pub fn projects() -> Html {
     };
 
     html! {
-        <div class="projects-container max-w-7xl mx-auto mt-8 px-4">
-        // <p class="text-center mb-4">{ "Description of some of my favorite projects." }</p>
-            <div class="projects-slider">
-                { for projects.iter().enumerate().filter_map(|(i, project)| {
-                    if i == *current_index {
-                        Some(html_nested!{ <ProjectItem ..project.clone() /> })
-                    } else {
-                        None
-                    }
-                })}
+        <>
+            <div class="projects-container max-w-7xl mx-auto mt-8 px-4">
+                <div class="projects-slider">
+                    { for projects.iter().enumerate().filter_map(|(i, project)| {
+                        if i == *current_index {
+                            Some(html_nested!{ <ProjectItem ..project.clone() /> })
+                        } else {
+                            None
+                        }
+                    })}
+                </div>
+                <div class="navigation-arrow left-arrow" onclick={on_prev}>
+                    <i class="fas fa-chevron-left"></i>
+                </div>
+                <div class="navigation-arrow right-arrow" onclick={on_next}>
+                    <i class="fas fa-chevron-right"></i>
+                </div>
             </div>
-            <div class="projects-navigation">
-            <button onclick={on_prev} class="project-button">{ "Prev" }</button>
-            <button onclick={on_next} class="project-button">{ "Next" }</button>
-        </div>
-        </div>
+        </>
     }
+
 }

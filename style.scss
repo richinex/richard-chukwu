@@ -242,23 +242,48 @@ ul, ol {
 }
 
 /* Navigation Bar Style */
-.projects-navigation {
-  display: flex;
-  justify-content: space-around;  /* Space out buttons more */
-  align-items: center;
-  padding: 20px;
-  margin-top: 5px;  /* Space above navigation bar */
+/* Arrow button styling for a modern look */
+.navigation-arrow {
+  position: fixed;
+  top: 50%;                       /* Center vertically */
+  z-index: 101;                   /* Ensure it's above other content */
+  font-size: 24px;                /* Size of the arrow icons */
+  color: #007bff;                 /* Color of the arrows */
+  cursor: pointer;
+  transform: translateY(-50%);    /* Centering adjustment */
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  padding: 10px;
+  border-radius: 50%;             /* Circular background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
+.left-arrow {
+  left: 10px;                     /* Position from the left */
+}
 
+.right-arrow {
+  right: 10px;                    /* Position from the right */
+}
 
-/* Slider adjustments for better focus */
+.navigation-arrow:hover {
+  background-color: rgba(255, 255, 255, 1); /* Less transparency on hover */
+  color: #0056b3;
+}
+
+/* Ensure content does not extend under the arrows */
+.projects-container {
+  padding-left: 50px;             /* Space for the left arrow */
+  padding-right: 50px;            /* Space for the right arrow */
+}
+
+/* Adjust slider to accommodate new navigation */
 .projects-slider {
   display: flex;
   justify-content: center;
   overflow: hidden;
-  padding: 20px 0;  /* Add padding around slider */
+  padding: 20px 0;
 }
+
 /* Styling for Markdown Content */
 .markdown {
   max-height: 500px;  /* Increased content visibility */
@@ -269,7 +294,6 @@ ul, ol {
 }
 
 
-// nav
 /* Navigation bar adjustments */
 
 /* Enhanced Nav Link Styles */

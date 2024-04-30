@@ -88,7 +88,7 @@ body {
   border-radius: 5px;
   overflow-y: auto;
   max-height: 700px;
-  width: 80%; // Ensures it takes the full width of its container
+  width: 70%; // Ensures it takes the full width of its container
 
 
 
@@ -188,14 +188,15 @@ body {
 }
 
 .article-content {
-  width: 100%;  // Full width on small screens
-  background-color: #ffffff;  // White background for the content area
-  color: #000000;  // Black text for high contrast on white background
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
   padding: 20px;
-  overflow-y: auto;  // Enables scrolling for the content pane
+  overflow-y: auto;
+  font-family: 'Roboto', sans-serif; // Add this line
 
-  @media (min-width: 768px) {  // For tablets and larger devices
-    width: 80%;  // Adjust the width of the content pane
+  @media (min-width: 768px) {
+      width: 80%;
   }
 }
 

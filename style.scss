@@ -212,6 +212,17 @@ body {
   font-weight: bold;
 }
 
+#code-id, .code-class {
+  background-color: #f4f4f4;
+  border-left: 3px solid #f36d33;
+  padding: 10px;
+}
+
+#link-id, .link-class {
+  color: #ff5722; /* Rust-themed color */
+  font-weight: bold;
+}
+
 .headers-class {
   font-weight: bold;
   font-size: 20px;

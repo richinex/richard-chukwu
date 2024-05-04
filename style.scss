@@ -27,6 +27,7 @@ body {
 
 }
 
+
 /* Retain custom scrollbar styles if necessary */
 @media (hover: hover) {
   ::-webkit-scrollbar {
@@ -59,36 +60,54 @@ body {
   }
 }
 
+.code-block {
+  background-color: #1e1e1e; // Dark background for the entire block
+  border-radius: 8px; // Rounded corners for aesthetics
+  padding: 10px; // Padding around the code block
+  position: relative; // Establishes a positioning context
+}
+
+.window-controls {
+  display: flex;
+  justify-content: start;
+  padding: 0 10px; // Padding for dots, adjust as needed
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+
+
 .code-snippet pre {
   white-space: pre-wrap;  // Allows text to wrap within the pre element
   word-wrap: break-word;  // Breaks words that extend beyond the width of the container
   overflow-wrap: break-word; // Ensures long words will wrap and not overflow
-  overflow-x: auto; // Allows horizontal scrolling if needed
+  overflow: visible; // Ensures no scrolling within the block
   font-family: 'Courier New', monospace; // Ensures monospaced font
-  font-size: 1.25rem; // Smaller font size for better fit on small screens
-  line-height: 3.0; // Improved line spacing for readability
+  font-size: 1.25rem; // Initial font size
+  line-height: 1.5; // Adjusted line-height for better readability
   background-color: #1e1e1e; // Dark background for code readability
   color: #E3F2FD; // Text color for readability
   padding: 10px; // Padding around the text
   border-radius: 8px; // Rounded corners for aesthetics
-
 
 }
 
 
 // Code snippet
 .code-snippet {
-  overflow: hidden;
+  overflow: visible; // Ensures no internal scrollbars
   padding: 16px; // Consistent padding
   margin-top: 20px;
   font-family: 'Fira Code', 'Consolas', monospace;
   font-size: 1.25rem;
-  // background-color: #1e1e1e; // Dark background
   min-height: 100px;
   border-radius: 5px;
-  overflow-y: auto;
-  max-height: 700px;
-  width: 70%; // Ensures it takes the full width of its container
+  width: 100%; // Adjusted to 100% to ensure it fits within its container
 
 
 

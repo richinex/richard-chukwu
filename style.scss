@@ -211,34 +211,36 @@ body {
   background-color: #ffffff;
   color: #000000;
   padding: 20px;
-  overflow-y: auto;
-  font-family: 'Roboto', sans-serif; // Add this line
+  overflow-wrap: break-word; // Breaks long words to prevent horizontal scrolling
+  word-wrap: break-word; // Ensures words do not overflow their containers
+  white-space: normal; // Ensures text wraps normally
+  font-family: 'Roboto', sans-serif;
+
+  @media (max-width: 767px) {
+    font-size: 4vw; // Smaller font size on smaller screens
+  }
 
   @media (min-width: 768px) {
-      width: 80%;
+    width: 80%;
+    font-size: 16px; // Larger, fixed font size on larger screens
   }
 }
 
-.article-content h1 {
-  font-weight: bold;  /* Make the text bold */
-  font-size: 1.5em;   /* Increase the size; adjust as needed */
-  margin-bottom: 10px; /* Optional: adds some space below the header */
-}
-
-
-#welcome-id {
-  color: navy;
-  font-weight: bold;
+.article-content h1, .article-content h2, .article-content p {
+  word-wrap: break-word;
+  hyphens: auto; // Automatically add hyphens when breaking words
 }
 
 #code-id, .code-class {
   background-color: #f4f4f4;
   border-left: 3px solid #f36d33;
   padding: 10px;
+  white-space: pre-wrap; // Allows preformatted text to wrap
+  overflow: hidden; // Hide overflow and allow the content to wrap instead
 }
 
 #link-id, .link-class {
-  color: #ff5722; /* Rust-themed color */
+  color: #ff5722; // Rust-themed color
   font-weight: bold;
 }
 
@@ -247,10 +249,20 @@ body {
   font-size: 20px;
 }
 
-
 ul, ol {
   margin-left: 20px;
   padding-left: 20px;
+}
+
+pre, code {
+  white-space: pre-wrap; // Ensures that preformatted text can wrap
+  overflow: auto; // Ensures only necessary scrolling
+}
+
+#welcome-id {
+  color: navy;
+  font-weight: bold;
+  font-size: 20px;
 }
 
 // Projects Section

@@ -2,140 +2,509 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Fira+Code&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-:root {
-  --primary-color: #ff4d4d;
-  --secondary-color: #1a1a1a;
-  --text-color: #f0f0f0;
-  --accent-color: #ffcc00;
+* {
+  font-family: "Poppins", sans-serif;
 }
 
+* {
+  box-sizing: border-box;
+}
+
+
+
+/* If Tailwind is used, specify colors in tailwind.config.js and use utility classes in HTML */
 body {
-  font-family: 'Roboto', sans-serif;
-  background-color: var(--secondary-color);
-  color: var(--text-color);
+  background: linear-gradient(rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.8)),
+  // background: linear-gradient(rgba(255, 255, 255, 0.6), transparent),
+  url('static/images/background_10.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  width: auto;
   min-height: 100vh;
+  background-size: cover;
+
 }
 
+
+/* Retain custom scrollbar styles if necessary */
+@media (hover: hover) {
+  ::-webkit-scrollbar {
+    width: 18px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+    margin-block: 0.5rem;
+  }
+  ::-webkit-scrollbar-thumb {
+    border: 6px solid #111;
+    background: #333;
+    border-radius: 100vmax;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666;
+  }
+}
+
+/* Example of retaining a necessary animation */
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: scale(1, 1.5);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.code-block {
+  background-color: #1e1e1e; // Dark background for the entire block
+  border-radius: 8px; // Rounded corners for aesthetics
+  padding: 10px; // Padding around the code block
+  position: relative; // Establishes a positioning context
+}
+
+.window-controls {
+  display: flex;
+  justify-content: start;
+  padding: 0 10px; // Padding for dots, adjust as needed
+}
+
+.dot {
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+}
+
+
+
+.code-snippet pre {
+  white-space: pre-wrap;  // Allows text to wrap within the pre element
+  word-wrap: break-word;  // Breaks words that extend beyond the width of the container
+  overflow-wrap: break-word; // Ensures long words will wrap and not overflow
+  overflow: visible; // Ensures no scrolling within the block
+  font-family: 'Courier New', monospace; // Ensures monospaced font
+  font-size: 1.25rem; // Initial font size
+  line-height: 1.5; // Adjusted line-height for better readability
+  background-color: #1e1e1e; // Dark background for code readability
+  color: #E3F2FD; // Text color for readability
+  padding: 10px; // Padding around the text
+  border-radius: 8px; // Rounded corners for aesthetics
+
+}
+
+
+// Code snippet
+.code-snippet {
+  overflow: visible; // Ensures no internal scrollbars
+  padding: 16px; // Consistent padding
+  margin-top: 20px;
+  font-family: 'Fira Code', 'Consolas', monospace;
+  font-size: 1.25rem;
+  min-height: 100px;
+  border-radius: 5px;
+  width: 100%; // Adjusted to 100% to ensure it fits within its container
+
+
+
+  .keyword, .macro { color: #569cd6; } // Simplify repeated styles
+  .string { color: #ce9178; }
+  .comment { color: #6a9955; }
+  .function { color: #c586c0; }
+  .brace { color: #dcdcdc; }
+  .attribute { color: #d7ba7d; }
+  .variable { color: #9cdcfe; }
+  .highlight-name { font-size: 1.2em; color: #c678dd; font-weight: bold; } /* For your name */
+  .highlight-role { font-size: 1.1em; color: #56b6c2; font-weight: bold; } /* For your role */
+  .highlight-tech { font-size: 1.1em; color: #e06c75; font-weight: bold; } /* For technologies like Rust, Yew */
+  .highlight-language { font-size: 1.1em; color: #c0de18; font-weight: bold; } /* For technologies like Rust, Yew */
+  .description { color: #dcdcaa; }
+  .important { font-weight: bold; color: #ce9178; }
+
+  code {
+      display: block; // Use block to ensure it takes the full width
+      animation: typing 5s steps(40, end), blink-caret 0.75s step-end infinite;
+  }
+
+  @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+  }
+
+  @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #569cd6; }
+  }
+}
+
+// Media query for smaller screens
+/* Larger screens: Standard size */
+@media (min-width: 1024px) {
+  .code-snippet pre {
+      font-size: 1rem; /* Standard font size for large screens */
+  }
+}
+
+/* Medium screens */
+@media (max-width: 1023px) {
+  .code-snippet pre {
+      font-size: 0.875rem; /* Slightly smaller font size for medium screens */
+  }
+}
+
+/* Smaller screens */
+@media (max-width: 768px) {
+  .code-snippet pre {
+      font-size: 0.75rem; /* Even smaller font size for better fit on small screens */
+  }
+}
+
+/* Use Tailwind for buttons, hover effects, and focus within the HTML by applying utility classes */
 .articles-layout {
   display: flex;
-  flex-direction: column;
+  flex-direction: column;  // Change direction on small screens
   max-width: 100%;
   min-height: 100vh;
-}
 
-@media (min-width: 768px) {
-  .articles-layout {
+  @media (min-width: 768px) {  // For tablets and larger devices
     flex-direction: row;
   }
 }
 
-.navigation-pane {
-  background-color: #2a2a2a;
-  padding: 1.5rem;
-  overflow-y: auto;
-  width: 100%;
-}
 
-@media (min-width: 768px) {
-  .navigation-pane {
-    width: 30%;
+
+.navigation-pane {
+  width: 100%;  // Full width on small screens
+  color: black;  // White text for readability on blue background
+  padding: 20px;
+  overflow-y: auto;  // Enables scrolling for the navigation pane
+
+  @media (min-width: 768px) {  // For tablets and larger devices
+    width: 20%;  // Adjust the width of the navigation pane
   }
 }
 
+/* Specific styles for navigation pane list items */
 .navigation-pane ul {
   list-style: none;
   padding: 0;
-  margin: 0;
+  margin: 0;  // Ensuring there's no default margin
 }
 
 .navigation-pane li {
   cursor: pointer;
-  padding: 0.75rem;
-  margin-bottom: 0.5rem;
-  border-left: 3px solid transparent;
-  transition: all 0.3s ease;
+  padding: 10px;
+  border-bottom: 1px solid #ccc;
+  color: rgb(6, 5, 5);  // White text for readability on blue background
 }
 
-.navigation-pane li:hover,
 .navigation-pane li.active {
-  background-color: #333;
-  border-left-color: var(--primary-color);
-}
-
-.date-header {
-  font-weight: bold;
-  color: var(--accent-color);
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
+  font-weight: bold;  // Make the active item bold
 }
 
 .article-content {
-  background-color: #222;
-  padding: 2rem;
-  overflow-y: auto;
   width: 100%;
-}
+  background-color: #ffffff;
+  color: #000000;
+  padding: 20px;
+  overflow-wrap: break-word; // Breaks long words to prevent horizontal scrolling
+  word-wrap: break-word; // Ensures words do not overflow their containers
+  white-space: normal; // Ensures text wraps normally
+  font-family: 'Roboto', sans-serif;
 
-@media (min-width: 768px) {
-  .article-content {
-    width: 70%;
+  @media (max-width: 767px) {
+    font-size: 4vw; // Smaller font size on smaller screens
+  }
+
+  @media (min-width: 768px) {
+    width: 80%;
+    font-size: 16px; // Larger, fixed font size on larger screens
   }
 }
 
-.content h1, .content h2, .content h3 {
-  color: var(--primary-color);
-  margin-bottom: 1rem;
+.article-content h1, .article-content h2, .article-content p {
+  word-wrap: break-word;
+  hyphens: auto; // Automatically add hyphens when breaking words
 }
 
-.content p {
-  margin-bottom: 1rem;
-  line-height: 1.6;
+#code-id, .code-class {
+  background-color: #f4f4f4;
+  border-left: 3px solid #f36d33;
+  padding: 10px;
+  white-space: pre-wrap; // Allows preformatted text to wrap
+  overflow: hidden; // Hide overflow and allow the content to wrap instead
 }
 
-.content a {
-  color: var(--accent-color);
-  text-decoration: none;
-  border-bottom: 1px solid var(--accent-color);
+#link-id, .link-class {
+  color: #ff5722; // Rust-themed color
+  font-weight: bold;
 }
 
-.content code {
-  font-family: 'Fira Code', monospace;
-  background-color: #333;
-  padding: 0.2rem 0.4rem;
-  border-radius: 3px;
+.headers-class {
+  font-weight: bold;
+  font-size: 20px;
 }
 
-.content pre {
-  background-color: #333;
-  padding: 1rem;
+ul, ol {
+  margin-left: 20px;
+  padding-left: 20px;
+}
+
+pre, code {
+  white-space: pre-wrap; // Ensures that preformatted text can wrap
+  overflow: auto; // Ensures only necessary scrolling
+}
+
+#welcome-id {
+  color: navy;
+  font-weight: bold;
+  font-size: 20px;
+}
+
+// Projects Section
+/* Button Styling for a more engaging look */
+.project-button {
+  padding: 10px 25px;
+  font-size: 16px;
+  background-color: #007bff;
+  color: white;
+  border: none;
   border-radius: 5px;
-  overflow-x: auto;
-  margin-bottom: 1rem;
+  cursor: pointer;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.content blockquote {
-  border-left: 4px solid var(--primary-color);
-  padding-left: 1rem;
-  margin-left: 0;
-  font-style: italic;
+.project-button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);  /* Slight increase in size */
 }
 
-/* Custom scrollbar for webkit browsers */
-::-webkit-scrollbar {
-  width: 8px;
+/* Navigation Bar Style */
+/* Arrow button styling for a modern look */
+.navigation-arrow {
+  position: fixed;
+  top: 50%;                       /* Center vertically */
+  z-index: 101;                   /* Ensure it's above other content */
+  font-size: 24px;                /* Size of the arrow icons */
+  color: #007bff;                 /* Color of the arrows */
+  cursor: pointer;
+  transform: translateY(-50%);    /* Centering adjustment */
+  background-color: rgba(255, 255, 255, 0.8); /* Slightly transparent background */
+  padding: 10px;
+  border-radius: 50%;             /* Circular background */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-::-webkit-scrollbar-track {
-  background: #1a1a1a;
+.left-arrow {
+  left: 10px;                     /* Position from the left */
 }
 
-::-webkit-scrollbar-thumb {
-  background: var(--primary-color);
-  border-radius: 4px;
+.right-arrow {
+  right: 10px;                    /* Position from the right */
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #ff6666;
+.navigation-arrow:hover {
+  background-color: rgba(255, 255, 255, 1); /* Less transparency on hover */
+  color: #0056b3;
 }
+
+/* Ensure content does not extend under the arrows */
+.projects-container {
+  padding-left: 50px;             /* Space for the left arrow */
+  padding-right: 50px;            /* Space for the right arrow */
+}
+
+/* Adjust slider to accommodate new navigation */
+.projects-slider {
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  padding: 20px 0;
+}
+
+/* Styling for Markdown Content */
+.markdown {
+  max-height: 500px;  /* Increased content visibility */
+  overflow-y: auto;  /* Scrolling enabled */
+  padding: 10px;
+  background: #f9f9f9;  /* Light background for markdown content */
+  border-radius: 5px;  /* Rounded corners inside the project item */
+}
+
+
+/* Navigation bar adjustments */
+
+/* Enhanced Nav Link Styles */
+nav {
+  background-color: #222; // Dark background
+  color: white;
+  .container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    .mobile-nav {
+      display: none; // Initially hidden on desktop
+    }
+
+    .menu-button {
+      display: none; // Initially hidden on desktop
+      color: white;
+    }
+
+    .nav-links {
+      display: flex; // Ensure links are always visible and horizontally arranged on desktop
+      justify-content: space-around;
+      width: 100%;
+      .nav-link {
+        color: white;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        padding: 14px 16px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        &:hover, &.active {
+          background-color: #333;
+          text-decoration: underline;
+          color: #ffcc00;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  nav .container {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .menu-button {
+      display: block; // Show the menu button on mobile
+    }
+
+    .nav-links, .mobile-nav {
+      display: none; // Hide nav-links by default on mobile
+    }
+
+    .nav-links.open, .mobile-nav {
+      display: block; // Display when menu is toggled open
+      width: 100%;
+      color: white;
+      .nav-link {
+        display: block;
+        width: 100%;
+        padding: 10px; // Smaller padding on mobile
+        text-align: left;
+        &:hover, &.active {
+          background-color: #333;
+          text-decoration: underline;
+          color: #ffcc00;
+        }
+      }
+    }
+  }
+}
+
+// Trivia Section
+.entertainment-section {
+  padding: 2rem;
+  border-radius: 8px;
+  position: relative;
+}
+
+.card {
+  // background-color: #323842;
+  margin: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  position: relative;
+}
+
+.card .input, .card .button {
+  width: 100%;
+  margin-bottom: 0.5rem;
+  color: black; // Darker text color for better visibility
+  font-size: 16px; // Adequate font size
+  height: 50px; // Explicit height for the input field
+}
+
+.card .button {
+  padding: 0.6rem;
+  border-radius: 0.25rem;
+  color: #ffffff;
+  cursor: pointer;
+  margin-right: 0.8rem; // Applies to both buttons for consistency
+  margin-bottom: 0.5rem; // Applies to both buttons for consistency
+}
+
+.card .check-answer-button {
+  background-color: #4CAF50; // Green
+}
+
+.card .next-question-button {
+  background-color: #007BFF; // Blue
+}
+
+.card .reset-button {
+  background-color: #9B59B6; // Green
+}
+
+
+.card .button:hover {
+  opacity: 0.85; // Slight fade effect on hover for both buttons
+  background-color: #45a049; // Adjusted background color on hover
+}
+
+.progress {
+  width: 100%; // Ensures the progress bar stretches across the entire width of the card
+  background-color: #ddd; // Light grey background for the progress bar
+  border-radius: 0.25rem; // Rounded edges for the progress bar
+  height: 20px; // Set the height of the progress bar
+  margin-bottom: 1rem; // Space below the progress bar
+  position: relative; // Needed for absolute positioning of the text
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); // Subtle shadow for depth
+  border: 1px solid #bbb; // Light border for definition
+}
+
+.progress-bar {
+  height: 100%; // Ensures the fill takes up the entire height of the progress bar
+  background-image: linear-gradient(to right, #4CAF50, #81C784); // Gradient from dark to light green
+  border-radius: 0.25rem; // Rounded edges for the filled part of the progress bar
+  transition: width 0.4s ease-in-out; // Smooth transition for width adjustments
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.2); // Inner shadow for texture
+}
+
+.progress-text {
+  position: absolute; // Absolute position within the parent .progress
+  width: 100%; // Match the width of the parent
+  top: 50%; // Center vertically
+  left: 0; // Align left
+  transform: translateY(-50%); // Centering adjustment
+  text-align: center; // Center the text horizontally
+  color: #323842; // Text color that stands out against the bar
+  font-size: 12px; // Adequate font size for visibility
+}
+
+
+
+@keyframes balloons {
+  0%, 100% { transform: translateY(0) rotate(-4deg); }
+  50% { transform: translateY(-20px) rotate(4deg); }
+}
+
+/* Media Query for Larger Screens */
+@media (min-width: 768px) {
+  .card {
+    width: 80%; // Makes the card wider on larger screens
+    padding: 2rem; // Increases padding for better aesthetics
+    margin: auto; // Centers the card horizontally
+  }
+}
+
